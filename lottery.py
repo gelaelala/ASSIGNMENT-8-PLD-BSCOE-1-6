@@ -21,9 +21,40 @@ def programintro ():
 
 def getnumbers ():
     time.sleep (2)
-    threenumbers = int(input("Enter three numbers here: "))
+    firstnumber = int(input("Enter first number here: "))
+    time.sleep (1)
+    secondnumber = int(input("Enter second number here: "))
+    time.sleep (1)
+    thirdnumber = int(input("Enter third number here: "))
+    time.sleep (1)
+    threenumbers = firstnumber, secondnumber, thirdnumber
     return threenumbers
+
+def finalizing (threenumbers_):
+    print (Fore.CYAN + f"Your three numbers are {threenumbers_}.")
+    print (Fore.RESET)
+    time.sleep (2)
+    question = input("Are you sure with these numbers? (yes/no): ")
+    if question == "yes":
+        return threenumbers_
+    else:
+        getnumbers ()
+
+def lotterytime (threenumbers):
+    randomnumbers = random.randint (range (0,9), 3)
+    for t in threenumbers:
+        for r in randomnumbers:
+            if t == r:
+                print (Fore.YELLOW + "Winner!")
+                time.sleep (2)
+                print ("Congratulations! You win the lottery!")
+                time.sleep (2)
+                print 
 
 programintro ()
 
-numbers = getnumbers ()
+threenumbers = getnumbers ()
+
+finalizing (threenumbers)
+
+lotterytime (threenumbers)
