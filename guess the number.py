@@ -18,4 +18,16 @@ def programintro ():
     time.sleep (1)
     print ("That's all, good luck player!")
 
-
+def enternumber ():
+    print ("The program has successfully generated a number! It's your turn to guess it!")
+    answer = (random.randint (0, 100))
+    userinput = int(input("Enter your guess here: "))
+    while userinput == answer:
+        if userinput > answer:
+            print (Fore.YELLOW + "The number you've guessed is greater than the generated number. Please try again.")
+            userinput = int(input("Enter your guess here: "))
+        elif userinput < answer:
+            print (Fore.BLUE + "The number you've guessed is less than the generated number. Please try again.")  
+            userinput = int(input("Enter your guess here: "))
+        else:
+            print (Fore.GREEN + "Congratulations! You guessed the correct number!")
