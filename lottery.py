@@ -21,7 +21,7 @@ def programintro ():
     print ("Good luck!")
 
 def getrandom ():
-    randomnumbers = random.sample (range (0,9), 3)
+    randomnumbers = sorted(random.sample (range (0,9), 3))
     return randomnumbers
 
 def lotterytime (randomnumbers):
@@ -33,28 +33,12 @@ def lotterytime (randomnumbers):
         time.sleep (1)
         thirdnumber = int(input("Enter third number here: "))
         time.sleep (1)
-        threenumbers = firstnumber, secondnumber, thirdnumber
+        threenumbers = sorted(firstnumber, secondnumber, thirdnumber)
         print (Fore.CYAN + f"Your three numbers are {threenumbers}.")
         print (Fore.RESET)
         time.sleep(2)
-        if firstnumber == randomnumbers and secondnumber == randomnumbers:
-                if thirdnumber == randomnumbers:
-                    break
-        elif firstnumber == randomnumbers and thirdnumber == randomnumbers:
-                if secondnumber == randomnumbers:
-                    break
-        elif secondnumber == randomnumbers and thirdnumber == randomnumbers:
-                if firstnumber == randomnumbers:
-                    break
-        elif secondnumber == randomnumbers and firstnumber == randomnumbers:
-                if thirdnumber == randomnumbers:
-                   break
-        elif thirdnumber == randomnumbers and secondnumber == randomnumbers:
-                if firstnumber == randomnumbers:
-                    break
-        elif thirdnumber == randomnumbers and firstnumber == randomnumbers:
-                if secondnumber == randomnumbers:
-                    break
+        if threenumbers == randomnumbers:
+            break
         else:
                 print (Fore.RED + "You loss.")
                 print (Fore.RESET)
@@ -70,6 +54,18 @@ def lotterytime (randomnumbers):
                     time.sleep (5)
                 elif question2 == 'n':
                     break
+    if threenumbers == randomnumbers:
+        print (Fore.YELLOW + "Winner!")
+        time.sleep (2)
+        print ("Congratulations! You win the lottery!")
+        time.sleep (2)
+        print (Fore.RESET)
+        print ("Thank you for playing the lottery!")
+        sys.exit
+    if question2 == 'n':
+        print (Fore.YELLOW + "That's all, thank you for playing the loterry. See you next time!")
+        print (Fore.RESET)
+        sys.exit
 
 programintro ()
 
