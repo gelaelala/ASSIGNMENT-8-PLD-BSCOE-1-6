@@ -20,7 +20,11 @@ def programintro ():
     time.sleep (2)
     print ("Good luck!")
 
-def getnumbers ():
+def getrandom ():
+    randomnumbers = random.sample (range (0,9), 3)
+    return randomnumbers
+
+def lotterytime ():
     while True:
         time.sleep (2)
         firstnumber = int(input("Enter first number here: "))
@@ -32,16 +36,7 @@ def getnumbers ():
         threenumbers = firstnumber, secondnumber, thirdnumber
         print (Fore.CYAN + f"Your three numbers are {threenumbers}.")
         print (Fore.RESET)
-        time.sleep (2)
-        question = input("Are you sure with these numbers? (yes/no): ")
-        if question == "no":
-            print ("If so, please change your set of numbers.")
-            time.sleep (2)
-        elif question == 'yes':
-            break
-
-def lotterytime (threenumbers_):
-    randomnumbers = random.sample (range (0,9), 3)
+        time.sleep(2)
     for t in threenumbers_:
         for r in randomnumbers:
             if t == r:
@@ -66,7 +61,6 @@ def lotterytime (threenumbers_):
                     time.sleep (5)
                     programintro ()
                     threenumbers = getnumbers ()
-                    finalizing (threenumbers)
                     lotterytime (threenumbers)
                 elif question2 == 'n':
                     print ("That's all, thank you for playing the loterry. See you next time!")
@@ -74,6 +68,6 @@ def lotterytime (threenumbers_):
 
 programintro ()
 
-threenumbers = getnumbers ()
+randomnum = getrandom ()
 
-lotterytime (threenumbers)
+lotterytime (randomnum)
