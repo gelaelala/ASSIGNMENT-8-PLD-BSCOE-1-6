@@ -28,9 +28,10 @@ def getrandom ():
 
 def usernum ():
     number = 1
-    userinput = list ()
+    userinput = []
     while number <= 3:
         usernum = int(input("Enter number here: "))
+        time.sleep (2)
         userinput.append (usernum)
         number +=1
     return sorted (userinput)
