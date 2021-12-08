@@ -60,7 +60,7 @@ def lotterytime (randomnumbers):
         print ("Congratulations! You win the lottery!")
         time.sleep (2)
         print (Fore.RESET)
-        print ("Thank you for playing the lottery!")
+        print ("Thank you for playing and we hope to see you again!")
         sys.exit
     if question2 == 'n':
         print (Fore.YELLOW + "That's all, thank you for playing the loterry. See you next time!")
