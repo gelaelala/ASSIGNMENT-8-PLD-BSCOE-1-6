@@ -21,26 +21,24 @@ def programintro ():
     print ("Good luck!")
 
 def getnumbers ():
-    time.sleep (2)
-    firstnumber = int(input("Enter first number here: "))
-    time.sleep (1)
-    secondnumber = int(input("Enter second number here: "))
-    time.sleep (1)
-    thirdnumber = int(input("Enter third number here: "))
-    time.sleep (1)
-    threenumbers = firstnumber, secondnumber, thirdnumber
-    return threenumbers
-
-def finalizing (threenumbers_):
-    print (Fore.CYAN + f"Your three numbers are {threenumbers_}.")
-    print (Fore.RESET)
-    time.sleep (2)
-    question = input("Are you sure with these numbers? (yes/no): ")
-    if question == "yes":
-        return threenumbers_
-    elif question == 'no':
-        threenumbers = getnumbers ()
-        finalizing (threenumbers)
+    while True:
+        time.sleep (2)
+        firstnumber = int(input("Enter first number here: "))
+        time.sleep (1)
+        secondnumber = int(input("Enter second number here: "))
+        time.sleep (1)
+        thirdnumber = int(input("Enter third number here: "))
+        time.sleep (1)
+        threenumbers = firstnumber, secondnumber, thirdnumber
+        print (Fore.CYAN + f"Your three numbers are {threenumbers}.")
+        print (Fore.RESET)
+        time.sleep (2)
+        question = input("Are you sure with these numbers? (yes/no): ")
+        if question == "no":
+            print ("If so, please change your set of numbers.")
+            time.sleep (2)
+        elif question == 'yes':
+            break
 
 def lotterytime (threenumbers_):
     randomnumbers = random.sample (range (0,9), 3)
@@ -53,7 +51,7 @@ def lotterytime (threenumbers_):
                 time.sleep (2)
                 print (Fore.RESET)
                 print ("Thank you for playing the lottery!")
-            else:
+            elif t != r:
                 print (Fore.RED + "You loss.")
                 print (Fore.RESET)
                 time.sleep (2)
@@ -77,7 +75,5 @@ def lotterytime (threenumbers_):
 programintro ()
 
 threenumbers = getnumbers ()
-
-finalizing (threenumbers)
 
 lotterytime (threenumbers)
