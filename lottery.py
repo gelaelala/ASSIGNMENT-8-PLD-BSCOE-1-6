@@ -18,20 +18,24 @@ def programintro ():
     print (Fore.RESET)
     print ("Please enter three numbers ranging from 0 to 9 and test your luck if the program will generate the same set of numbers as yours.")
     time.sleep (2)
-    print ("Good luck!")
+    print (Fore.YELLOW + "Good luck!")
+    print (Fore.RESET)
 
 def getrandom ():
-    lottonumbers = list()
-    randomnumbers = sorted(random.sample (range (0,9), 3))
-    lottonumbers.append (randomnumbers)
-    return lottonumbers
+    lottonumbers = []
+    for l in range (3):
+        randomnumbers = random.randint (0,9)
+        while randomnumbers in lottonumbers:
+                randomnumbers = random.randint (0,9)
+        lottonumbers.append (randomnumbers)
+    return sorted(lottonumbers)
 
 def usernum ():
     number = 1
     userinput = []
     while number <= 3:
         usernum = int(input("Enter number here: "))
-        time.sleep (2)
+        time.sleep (1) 
         userinput.append (usernum)
         number +=1
     return sorted (userinput)
@@ -59,11 +63,12 @@ def lotterytime (user, randomnumbers):
                 question2 = input("Would you like to try again? (y/n): ")
                 time.sleep (3)
                 if question2 == "y":
-                    print ("Restarting the game. Please wait.")
+                    print (Fore.CYAN + "Restarting the game. Please wait.")
                     time.sleep (5)
                     print (Fore. RESET)
                     main ()
                 elif question2 == 'n':
+                    print (Fore.RESET)
                     print (Fore.YELLOW + "That's all, thank you for playing the loterry. See you next time!")
                     print (Fore.RESET)
                     sys.exit
