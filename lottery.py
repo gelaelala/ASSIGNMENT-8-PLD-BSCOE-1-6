@@ -34,10 +34,16 @@ def usernum ():
     number = 1
     userinput = []
     while number <= 3:
-        usernum = int(input("Enter number here: "))
-        time.sleep (1) 
-        userinput.append (usernum)
-        number +=1
+        try:   
+            usernum = int(input("Enter number here: "))
+            time.sleep (1) 
+            userinput.append (usernum)
+            number +=1
+        except ValueError:
+            print (Fore.RED + "ERROR: It seems like you didn't put any value. Please try again.")
+            print (Fore.RESET)
+            time.sleep (1)
+            continue
     return sorted (userinput)
 
 def lotterytime (user, randomnumbers):
