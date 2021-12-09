@@ -22,7 +22,7 @@ def programintro ():
     print (Fore.RESET)
 
 def getrandom ():
-    lottonumbers = []
+    lottonumbers = list ()
     for l in range (3):
         randomnumbers = random.randint (0,9)
         while randomnumbers in lottonumbers:
@@ -32,7 +32,7 @@ def getrandom ():
 
 def usernum ():
     number = 1
-    userinput = []
+    userinput = list ()
     while number <= 3:
         try:   
             usernum = int(input("Enter number here: "))
